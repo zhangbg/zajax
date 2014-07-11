@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>zajax 库</title>
+    </head>
+    <body>
+        <div class="mainZones">
+            <div id="testZone"> 测试区域 </div>
+        </div>
+        <script type="text/javascript" src="javascript/zajax.js"></script>
+        <script type="text/javascript">
+            window.onload = function () {
+                zajax.request('data/base.json', {
+                    params : {'name' : 'test', 'name2' : 'test2'},
+                    success : function (responseText, status, readyState) {
+                        console.log(responseText + '-' + status + '-' + readyState);
+                    }
+                });
+                zajax.get('data/base.json', {'name3' : 'test', 'name4' : 'test2'}, function (responseText) {
+                    console.log('get=' + responseText);
+                });
+                zajax.post('data/base.json', {'name3' : 'test', 'name4' : 'test2'}, function (responseText) {
+                    console.log('post=' + responseText);
+                });
+            };
+        </script>
+    </body>
+</html>
